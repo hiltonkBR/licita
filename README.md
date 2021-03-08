@@ -21,4 +21,3 @@ A ideia é gerir as licitações em que uma empresa esteja participando. A API p
 ## Endpoints
 - Cria, lista, edita e exlcui licitações.
   - /api/licita
-    - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
