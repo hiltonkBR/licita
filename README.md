@@ -15,7 +15,7 @@ A ideia é gerir as licitações em que uma empresa esteja participando. A API p
   - Cadastrar licitações
   - Atualizar licitações
   - Deleta licitações
-  - Controlar as datas de questionamento, impugnação e certame, gerando alertas para estas datas. 
+  - Controlar as datas de questionamento, impugnação e certame gerando alertas para estas datas. 
   - Poder consultar as licitações correntes atraves de integração via API de outros sistemas.
 
 ## Endpoints
