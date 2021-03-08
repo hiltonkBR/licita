@@ -23,5 +23,5 @@ A ideia é gerir as licitações em que uma empresa esteja participando. A API p
   - [GET] lista licitações /api/licita
   - [GET] lista licitação por ID /api/licita/{id}
   - [POST] cria licitações /api/licita
-  - [DELET] deleta licitação /api/licita/{id}
+  - [DELETE] deleta licitação /api/licita/{id}
   - [PUT] edita licitação /api/licita/{id}/
