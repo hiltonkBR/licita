@@ -21,4 +21,5 @@ A ideia é gerir as licitações em que uma empresa esteja participando. A API p
 ## Endpoints
 - Cria, lista licitações.
   - [GET] lista licitações /api/licita
+  - [GET] lista licitação por ID /api/licita/{id}
   - [POST] cira licitações /api/licita
