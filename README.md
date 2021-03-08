@@ -18,7 +18,5 @@ A ideia é gerir as licitações em que uma empresa esteja participando. A API p
   - Poder consultar as licitações correntes atraves de integração via API de outros sistemas.
 
 ## Endpoints
-- Cadastrar licitações
-- Editar licictações
-- Excluir licitações
-- Listar licitações
+- Cria, lista e edita licitações.
+  /api/licita 
