@@ -19,6 +19,10 @@ from rest_framework import routers
 from licitacoes.views import *
 from contrib.views import *
 from clientes import views
+from rest_framework_swagger.views import get_swagger_view
+from django.conf.urls import url
+
+schema_view = get_swagger_view(title='Project Name')
 
 router = routers.DefaultRouter()
 router.register(r'alertas', AlertaViewSet)
@@ -36,4 +40,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
+    url(r'^docs/', schema_view)
 ]

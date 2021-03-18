@@ -6,5 +6,8 @@ from .models import Cliente
 # Create your views here.
 
 class ClienteView(viewsets.ModelViewSet):
+    """
+    Clientes: responsável pelos clientes
+    """
     serializer_class = ClienteSerializer
     queryset = Cliente.objects.all()
