@@ -18,6 +18,7 @@ from django.urls import include, path
 from rest_framework import routers
 from licitacoes.views import *
 from contrib.views import *
+from clientes import views
 
 router = routers.DefaultRouter()
 router.register(r'alertas', AlertaViewSet)
@@ -29,6 +30,7 @@ router.register(r'publicacoes', PublicacaoViewSet)
 router.register(r'tipos', TipoViewSet)
 router.register(r'tecnologias', TecnologiaViewSet)
 router.register(r'meios-de-envios', MeioEnvioViewSet)
+router.register(r'clientes', views.ClienteView, 'clientes')
 
 urlpatterns = [
     path('', include(router.urls)),

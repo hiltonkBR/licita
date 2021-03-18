@@ -9,12 +9,12 @@ class AlertaSerializer(serializers.ModelSerializer):
 class ComentarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comentario
-        fields = ('id', 'autor', 'descricao', 'criticidade', 'licitacaoId', 'dataCriacao')
+        fields = ('id', 'autor', 'comentario', 'criticidade', 'documento', 'licitacaoId', 'dataCriacao')
 
 class LicitacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Licitacao
-        fields = ('id', 'orgao', 'pregao', 'uasg', 'descricao', 'tecnologiaId', 'dataCriacao', 'observacoes', 'status')
+        fields = ('id', 'clienteID', 'pregao', 'uasg', 'objeto', 'valorEstimado', 'tecnologiaId', 'dataCriacao', 'observacoes', 'statusLicitacao', 'statusInterjato')
 
 class DocumentoSerializer(serializers.ModelSerializer):
     class Meta:
