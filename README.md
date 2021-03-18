@@ -1,1 +1,1 @@
-# licitacao-api
+# licita
