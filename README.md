@@ -23,3 +23,5 @@ A ideia é gerir as licitações em que uma empresa esteja participando. A API p
   - [DELET] deleta licitação /api/licita/{id}
   - [DELETE] deleta licitação /api/licita/{id}
   - [PUT] edita licitação /api/licita/{id}/
+
+## Foi feita adição dos testes e CI
