@@ -1,5 +1,6 @@
 from .models import MeioEnvio, Tecnologia, Tipo  
 from rest_framework import viewsets
+from rest_framework.response import Response
 from rest_framework import permissions
 from .serializers import MeioEnvioSerializer, TecnologiaSerializer, TipoSerializer
 
@@ -21,6 +22,9 @@ class TecnologiaViewSet(viewsets.ModelViewSet):
     queryset = Tecnologia.objects.all()
     serializer_class = TecnologiaSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_paginated_response(self, data):
+       return Response(data)
 
 class TipoViewSet(viewsets.ModelViewSet):
     """

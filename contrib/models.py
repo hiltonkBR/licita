@@ -5,6 +5,7 @@ class Tecnologia (models.Model):
     class Meta:
         verbose_name = "Tecnologia "
         verbose_name_plural = "Tecnologias"
+        ordering = ['id']
 
     def __str__(self):
         return self.descricao

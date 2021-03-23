@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'clientes',
     'rest_framework',
     'corsheaders',
-    'rest_framework_swagger'
+    'rest_framework_swagger',
+    'rest_framework.authtoken',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [

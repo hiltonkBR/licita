@@ -22,7 +22,7 @@ from clientes import views
 from rest_framework_swagger.views import get_swagger_view
 from django.conf.urls import url
 
-schema_view = get_swagger_view(title='Project Name')
+schema_view = get_swagger_view(title='Licita')
 
 router = routers.DefaultRouter()
 router.register(r'alertas', AlertaViewSet)
