@@ -8,7 +8,7 @@ class Licitacao (models.Model):
         verbose_name_plural = "Licitações"
 
     def __str__(self):
-        return self.clienteID.nomeCliente
+        return self.clienteGerenciadorID.nomeCliente
 
     choiceStatusLicitacao = (
         ("Publicada", "Publicada"),
@@ -24,10 +24,28 @@ class Licitacao (models.Model):
             ("Conquistada", "Conquistada"),
             ("Inapta", "Inapta")
     )
+
+    choicesTipoPregao = (
+            ("Presencial", "Presencial"),
+            ("Eletrônico", "Eletrônico")
+    )
+
+    choicesModalidade = (
+            ("Carta convite", "Carta convite"),
+            ("Emergencial", "Emergencial"),
+            ("Chamada pública", "Chamada pública"),
+            ("Shopping", "Shopping"),
+            ("Concorrência", "Concorrência"),
+            ("Tomada de preços", "Tomada de preços"),
+            ("Pregão", "Pregão")
+    )
     
-    clienteID = models.ForeignKey(Cliente, verbose_name="cliente", on_delete=models.CASCADE)
-    pregao = models.CharField(verbose_name="Número do pregão",  max_length=50)
-    uasg = models.IntegerField(verbose_name="Número do UASG", null=True)
+    clienteGerenciadorID = models.ForeignKey(Cliente, verbose_name="Cliente Gerenciador", related_name="clienteGerenciadorID", on_delete=models.CASCADE)
+    clienteBeneficiadoID = models.ForeignKey(Cliente, verbose_name="Cliente Beneficiado", related_name="clienteBeneficiadoID", on_delete=models.CASCADE)
+    modalidadeLicitacao = models.CharField(verbose_name="Modalidade da Licitação", max_length=25, choices=choicesModalidade)
+    tipoPregao = models.CharField(verbose_name="Tipo de Pregão", max_length=25, choices=choicesTipoPregao, null=True)
+    numLicitacao = models.CharField(verbose_name="Código da pregão",  max_length=50, null=True)
+    registroPreco = models.BooleanField(verbose_name="Registro de preço?")
     objeto = models.TextField(verbose_name="Objeto da Licitação")
     tecnologiaId = models.ManyToManyField(Tecnologia, verbose_name="Tecnologias")
     objeto = models.TextField(verbose_name="Objeto da licitação", null=True)
@@ -92,6 +110,22 @@ class Documento (models.Model):
     dataCriacao = models.DateField(auto_now_add=True)
     dataEdicao = models.DateField(auto_now=True)
 
+class Contato (models.Model):
+    class Meta:
+        verbose_name = ("Contato")
+        verbose_name_plural = ("Documentos")
+    
+    def __str__(self):
+        return self.nome
+    
+    nome = models.CharField(verbose_name="Nome do contato", max_length=100)
+    funcao = models.CharField(verbose_name="Função do contato", max_length=100)
+    telefone = models.CharField(verbose_name="Telefone do contato", max_length=50, null=True)
+    email = models.CharField(verbose_name="E-mail do contato", max_length=100, null=True)
+    licitacaoId = models.ForeignKey(Licitacao, verbose_name="Licitação", on_delete=models.CASCADE)
+    dataCriacao = models.DateField(auto_now_add=True)
+    dataEdicao = models.DateField(auto_now=True)
+
 class Recolhimento (models.Model):
     class Meta:
         verbose_name = ("Recolhimento")
@@ -101,6 +135,27 @@ class Recolhimento (models.Model):
         return self.licitacao
 
     dataRecolhimento = models.DateField(verbose_name="Data de recolhimento")
+    licitacaoId = models.ForeignKey(Licitacao, verbose_name="Licitação", on_delete=models.CASCADE)
+    dataCriacao = models.DateField(auto_now_add=True)
+    dataEdicao = models.DateField(auto_now=True)
+
+class Link (models.Model):
+    class Meta:
+        verbose_name = ("Link")
+        verbose_name_plural = ("Links")
+
+    def __str__(self):
+        return self.tipoLink
+
+    choiseTipoLink = (
+            ("Questionamentos", "Questionamentos"),
+            ("Impugnação", "Impugnação"),
+            ("Anuncios", "Anuncios"),
+            ("Documentos", "Documentos")
+    )
+
+    tipoLink = models.CharField(verbose_name="Tipo do Link", max_length=50, choices=choiseTipoLink)
+    link = models.TextField(verbose_name="Link")
     licitacaoId = models.ForeignKey(Licitacao, verbose_name="Licitação", on_delete=models.CASCADE)
     dataCriacao = models.DateField(auto_now_add=True)
     dataEdicao = models.DateField(auto_now=True)

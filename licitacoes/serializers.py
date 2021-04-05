@@ -14,7 +14,7 @@ class ComentarioSerializer(serializers.ModelSerializer):
 class LicitacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Licitacao
-        fields = ('id', 'clienteID', 'pregao', 'uasg', 'objeto', 'valorEstimado', 'tecnologiaId', 'dataCriacao', 'observacoes', 'statusLicitacao', 'statusInterjato')
+        fields = ('id', 'clienteGerenciadorID', 'clienteBeneficiadoID', 'modalidadeLicitacao', 'tipoPregao', 'numLicitacao', 'registroPreco', 'objeto', 'valorEstimado', 'tecnologiaId', 'dataCriacao', 'observacoes', 'statusLicitacao', 'statusInterjato')
 
 class DocumentoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,3 +30,13 @@ class PublicacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Publicacao
         fields = ('id', 'dataPublicacao', 'dataCriacao', 'dataQuestionamento', 'dataImpugnacao','licitacaoId')
+
+class ContatoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contato
+        fields =('id', 'nome', 'funcao', 'telefone', 'email', 'licitacaoId')
+
+class LinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Link
+        fields = ('id', 'tipoLink', 'link', 'licitacaoId')

@@ -35,6 +35,9 @@ router.register(r'tipos', TipoViewSet)
 router.register(r'tecnologias', TecnologiaViewSet)
 router.register(r'meios-de-envios', MeioEnvioViewSet)
 router.register(r'clientes', views.ClienteView, 'clientes')
+router.register(r'contato', ContatoViewSet)
+router.register(r'link', LinkViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),

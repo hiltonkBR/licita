@@ -52,3 +52,19 @@ class PublicacaoViewSet(viewsets.ModelViewSet):
     queryset = Publicacao.objects.all()
     serializer_class = PublicacaoSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class ContatoViewSet(viewsets.ModelViewSet):
+    """
+    Contato: responsável pelos contatos da licitações
+    """
+    queryset = Contato.objects.all()
+    serializer_class = ContatoSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class LinkViewSet(viewsets.ModelViewSet):
+    """
+    Contato: responsável pelos links da licitações
+    """
+    queryset = Link.objects.all()
+    serializer_class = LinkSerializer
+    permission_classes = [permissions.IsAuthenticated]
