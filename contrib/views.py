@@ -33,3 +33,6 @@ class TipoViewSet(viewsets.ModelViewSet):
     queryset = Tipo.objects.all()
     serializer_class = TipoSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_paginated_response(self, data):
+       return Response(data)
